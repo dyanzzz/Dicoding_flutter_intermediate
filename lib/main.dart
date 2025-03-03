@@ -1,70 +1,32 @@
+import 'package:declarative_navigation_1/routes/router_delegate.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() => runApp(const QuotesApp());
+
+class QuotesApp extends StatefulWidget {
+  const QuotesApp({super.key});
+
+  @override
+  State<QuotesApp> createState() => _QuotesAppState();
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class _QuotesAppState extends State<QuotesApp> {
+  late MyRouterDelegate myRouterDelegate;
 
-  // This widget is the root of your application.
+  @override
+  void initState() {
+    super.initState();
+    myRouterDelegate = MyRouterDelegate();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+      title: 'Quotes App',
+      home: Router(
+        routerDelegate: myRouterDelegate,
+        backButtonDispatcher: RootBackButtonDispatcher(),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
