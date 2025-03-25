@@ -22,7 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
     final provider = context.read<AudioNotifier>();
 
     audioPlayer = AudioPlayer();
-    audioSource = AssetSource("cricket.wav");
+    // audioSource = AssetSource("cricket.wav");
+    audioSource = UrlSource("https://github.com/dicodingacademy/assets/raw/main/flutter_intermediate_academy/bensound_ukulele.mp3");
     audioPlayer.setSource(audioSource);
 
     audioPlayer.onPlayerStateChanged.listen((state) {
