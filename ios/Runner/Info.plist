@@ -6,6 +6,7 @@
   <array>
     <string>id</string>
     <string>en</string>
+    <string>ar</string>
   </array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
