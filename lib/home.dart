@@ -1,3 +1,4 @@
+import 'package:app_settings/app_settings.dart';
 import 'package:locatization_1/widget/max_width_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:locatization_1/content/benefit_widget.dart';
@@ -22,7 +23,9 @@ class HomePage extends StatelessWidget {
             icon: const Icon(Icons.flag),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              AppSettings.openAppSettings();
+            },
             icon: const Icon(Icons.settings),
           ),
         ],
