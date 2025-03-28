@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:locatization_1/common.dart';
 
 class FreePackageCard extends StatelessWidget {
   const FreePackageCard({super.key});
@@ -18,20 +19,20 @@ class FreePackageCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
-              "Berlangganan 15 hari",
+              AppLocalizations.of(context)!.freePackageTitle(15),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
               ),
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
-              "Gratis",
+              AppLocalizations.of(context)!.freePackagePrice,
               textAlign: TextAlign.center,
             ),
           ),
@@ -39,8 +40,8 @@ class FreePackageCard extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: OutlinedButton(
               onPressed: () {},
-              child: const Text(
-                "Coba sekarang",
+              child: Text(
+                AppLocalizations.of(context)!.freePackageButton,
                 textAlign: TextAlign.center,
               ),
             ),

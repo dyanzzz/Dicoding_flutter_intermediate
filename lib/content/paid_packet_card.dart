@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:locatization_1/common.dart';
 
 class PaidPackageCard extends StatelessWidget {
   const PaidPackageCard({super.key});
@@ -17,29 +18,37 @@ class PaidPackageCard extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
-              "Berlangganan 1 Bulan (30 hari)",
+              AppLocalizations.of(context)!.paidPackageTitle(1),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
               ),
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(8.0),
-            child: Text(
-              "Rp 1,500,000",
-              textAlign: TextAlign.center,
+            child: Localizations.override(
+              context: context,
+              locale: const Locale("id"),
+              child: Builder(
+                builder: (context) {
+                  return Text(
+                    AppLocalizations.of(context)!.paidPackagePrice(1500000),
+                    textAlign: TextAlign.center,
+                  );
+                },
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: OutlinedButton(
               onPressed: () {},
-              child: const Text(
-                "Pilih Paket",
+              child: Text(
+                AppLocalizations.of(context)!.paidPackageButton,
                 textAlign: TextAlign.center,
               ),
             ),
