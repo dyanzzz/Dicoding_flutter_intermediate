@@ -102,7 +102,7 @@ class _DirectionScreenState extends State<DirectionScreen> {
       polylines.add(polyline);
     });
     mapController.animateCamera(
-      CameraUpdate.newLatLngBounds(result.bounds, 50),
+      CameraUpdate.newLatLngBounds(result!.bounds, 50),
     );
   }
 
